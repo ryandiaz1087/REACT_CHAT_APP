@@ -1,15 +1,17 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Join from './components/Join';
-import Chat from './components/Chat';
+import Join from './components/join/Join';
+import Chat from './components/chat/Chat';
 
 const Root = () => {
-  return (
+  const main = (
     <Switch>
       <Route path="/" exact component={Join}/>
-      <Route path="/Chat" exact component={Chat}/>
+      <Route path="/Chat" component={Chat}/>
     </Switch>
   );
+
+  return <main>{main}</main>;
 }
 
 export default Root;
