@@ -35,6 +35,12 @@ const Chat = ({ location }) => {
     socket.on('message', (message) => {
       setMessages([...messages, message]);
     });
+
+    return () => {
+      socket.emit('disconnect');
+
+      socket.off();
+    }
   }, [messages]);
 
   // Function for sending messages
